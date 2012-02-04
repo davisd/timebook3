@@ -1,0 +1,8 @@
+syntax: glob
+
+*.pyc
+*.swp
+/env/
+/build/
+__pycache__
+

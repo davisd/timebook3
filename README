@@ -1,0 +1,43 @@
+Timebook 3
+==========
+
+Timebook 3 is a small utility that tracks what you spend time on and how much
+you are owed.  It can also be used to prepare time logs to a client. timebook3
+is a Python 3 app that stores its data in a sqlite3 database.
+
+timebook3
+---------
+
+The original timebook utility was written by Trevor Caira and has been hosted
+through a mercurial repository at https://bitbucket.org/trevor/timebook/
+
+The original timebook utility upon which this tool is based is
+    Copyright (c) 2008-2009 Trevor Caira
+
+This tool is
+    Copyright (c) 2012 David Davis
+
+This software has been rewritten for Python 3, and the application restructured
+for greater flexibility.
+
+Money reporting has been added with sheet/rate and sheet/billing cycle tracking.
+
+The timebook3 utility with source is available on github at:
+http://github.com/davisd/timebook3/
+
+
+Concepts
+--------
+
+TODO: Rewrite this
+
+Usage
+-----
+
+TODO: Rewrite this with basic usage information
+
+Commands
+--------
+
+TODO: Document the commmands and their options
+
