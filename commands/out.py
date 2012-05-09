@@ -37,7 +37,7 @@ def out(db, timestamp):
 
     active_time = timestamp - start_time
     if active_time < 0:
-        parserr.error('negative active time')
+        parser.error('negative active time')
 
     db.execute('''
     update
