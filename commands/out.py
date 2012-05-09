@@ -15,22 +15,34 @@ parser = argparse.ArgumentParser(add_help=False,
 parser.add_argument('--at', '-a', default=None,
     help='clock out time')
 
+parser.add_argument('--sheet', '-s', default=None,
+    help='sheet to clock out of')
+
 aliases=['o', 'stop']
 
-def command(timebook, config, at, **kwargs):
+def command(timebook, config, at, sheet, **kwargs):
     # get the db
     cfg=parse_config(config)
     db=Database(timebook, cfg)
 
     timestamp=parse_date_time_or_now(at)
 
-    out(db, timestamp)
+    sheet = sheet or db.get_current_sheet()
 
-def out(db, timestamp):
+    if sheet not in db.get_sheet_names():
+        parser.error('%s is not a known timesheet' % sheet)
+
+    out(db, timestamp, sheet)
+
+def out(db, timestamp, sheet=None):
     """
     stop the timer for an entry
     """
-    active = db.get_current_start_time()
+    if not sheet:
+        active=db.get_current_active_info()
+    else:
+        active=db.get_active_info(sheet)
+
     if not active:
         parser.error('the timesheet is not active')
     active_id, start_time = active
