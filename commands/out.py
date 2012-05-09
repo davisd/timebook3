@@ -39,9 +39,9 @@ def out(db, timestamp, sheet=None):
     stop the timer for an entry
     """
     if not sheet:
-        active=db.get_current_active_info()
+        active=db.get_current_start_time()
     else:
-        active=db.get_active_info(sheet)
+        active=db.get_start_time(sheet)
 
     if not active:
         parser.error('the timesheet is not active')
