@@ -38,6 +38,11 @@ def end(db, sheet, start_time):
     sheet - timesheet
     start_time - start time for the new billing cycle
     """
+    # if currently active, clock out
+    active = db.get_active_info(sheet)
+    if active:
+        parser.error('the timesheet is currently active')
+
     db.execute('''
     replace into
         sheet_meta
